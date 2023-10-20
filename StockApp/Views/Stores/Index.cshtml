@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Stock.BL.Stores.DTOs.StoreReadDTO>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="heading-elements">
+                    <a class="btn btn-primary" asp-action="Create">Create New</a>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body card-dashboard">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Mobile Number</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var store in Model)
+                                {
+                                    <tr>
+                                        <td>@store.Name</td>
+                                        <td>@store.Address</td>
+                                        <td>@store.MobileNumber</td>
+                                        <td>
+                                            <a class="btn btn-info ms-1" asp-action="ShowItems" asp-route-id="@store.Id">Show Items</a>
+                                            <a class="btn btn-warning ms-1" asp-action="Edit" asp-route-id="@store.Id">Edit</a>
+                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@store.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

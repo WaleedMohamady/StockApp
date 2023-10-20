@@ -1,0 +1,39 @@
+﻿@model Stock.BL.Items.DTOs.ItemAddDTO
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-content collapse show">
+                <div class="card-body card-dashboard">
+                    <form asp-action="Create" method="post" asp-controller="Items">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label asp-for="Name" class="control-label">Item Name:</label>
+                                <input asp-for="Name" class="form-control" required />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-6">
+                                <label asp-for="TotalBalance" class="control-label">Total Balance:</label>
+                                <input asp-for="TotalBalance" class="form-control" type="number" min="1" />
+                                <span asp-validation-for="TotalBalance" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary col-lg-4 col-md-6 col-sm-12" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

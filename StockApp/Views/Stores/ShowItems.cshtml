@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Stock.BL.Stores.DTOs.ItemsInStoreDTO>
+@{
+    var store = ViewBag.Store;
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <label class="control-label fw-bold">Store Name:</label>
+                    <span>@store.Name</span>
+                </div>
+                <div>
+                    <label class="control-label fw-bold">Address:</label>
+                    <span>@store.Address</span>
+                </div>
+                <div>
+                    <label class="control-label fw-bold">Mobile Number:</label>
+                    <span>@store.MobileNumber</span>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body card-dashboard">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Available Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.AvailableBalance</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
