@@ -5,6 +5,6 @@ namespace Stock.DBAL.Repositories.StoreItems_Repo
 {
     public interface IStoreItemsRepo : IGenericRepo<StoreItem>
     {
-        Task<StoreItem> GetByStoreId (Guid Id);
+        Task<StoreItem> GetByStoreIdAndItemId (Guid storeId, Guid itemId);
     }
 }

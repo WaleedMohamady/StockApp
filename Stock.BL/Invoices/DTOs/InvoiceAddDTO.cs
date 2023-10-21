@@ -8,9 +8,9 @@ public class InvoiceAddDTO
     public string InvoiceNumber { get; set; }
     [Required]
     public DateTime Date { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Store is required")]
     public Guid StoreId { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Item is required")]
     public Guid ItemId { get; set; }
     [Required]
     public int Quantity { get; set; }

@@ -83,12 +83,19 @@
 
         $("#saveBtn").click(function () {
             var quantity = $('#Quantity').val();
+            var date = $('#Date').val();
+            var invoiceNumber = $('#InvoiceNumber').val();
+            var store = $('#StoreId').val();
+            var item = $('#ItemId').val();
+
             var totBalance = parseInt($('#TotBalance').text());
             if (quantity > totBalance) {
                 toastr.error('No Enough Balance');
             }
             else {
-                toastr.success('Invoice Has Created Successfully');
+                if (quantity != "" || invoiceNumber != "" || store != null || item != null && date != "") {
+                    toastr.success('Invoice Has Created Successfully');
+                }
                 $('#form').submit();
             }
         });

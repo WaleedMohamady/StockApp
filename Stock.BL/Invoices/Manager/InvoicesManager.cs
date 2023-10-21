@@ -33,7 +33,7 @@ public class InvoicesManager : IInvoicesManager
         addedInvoice.Id = Guid.NewGuid();
         await _invoicesRepo.Add(addedInvoice);
 
-        var storeItem = await _storeItemsRepo.GetByStoreId(addedInvoice.StoreId);
+        var storeItem = await _storeItemsRepo.GetByStoreIdAndItemId(addedInvoice.StoreId, addedInvoice.ItemId);
         if (storeItem is null)
         {
             var newStoreItem = new StoreItem

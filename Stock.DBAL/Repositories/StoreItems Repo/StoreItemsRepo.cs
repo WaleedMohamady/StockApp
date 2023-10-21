@@ -18,10 +18,10 @@ namespace Stock.DBAL.Repositories.StoreItems_Repo
         #endregion
 
         #region Methods
-        public async Task<StoreItem> GetByStoreId(Guid id)
+        public async Task<StoreItem> GetByStoreIdAndItemId(Guid storeId, Guid itemId)
         {
             var storeItem = await _context.StoreItems
-                .Where(s => s.StoreId == id)
+                .Where(s => s.StoreId == storeId && s.ItemId == itemId)
                 .FirstOrDefaultAsync();
 
             return storeItem;
